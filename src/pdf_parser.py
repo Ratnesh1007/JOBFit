@@ -1,0 +1,18 @@
+import pymupdf
+
+
+def extract_text_from_pdf(pdf_path):
+    """
+    Extract text from every page of a PDF.
+    """
+
+    document = pymupdf.open(pdf_path)
+
+    text = ""
+
+    for page in document:
+        text += page.get_text()
+
+    document.close()
+
+    return text
